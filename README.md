@@ -113,15 +113,15 @@ I created a NAT Network in Oracle VirtualBox and named it `NatNetwork`. The netw
 
 I configured the virtual machine's hardware resources before starting it.
 
-**Memory allocation — 4,000 MB**
+**Screenshot 5 — Memory allocation: 4,000 MB**
 
 ![Memory configuration](Lab_Setup/Screenshot_5.png)
 
-**Processor allocation — 4 CPUs**
+**Screenshot 6 — Processor Allocation: 4 CPUs**
 
 ![Processor configuration](Lab_Setup/Screenshot_6.png)
 
-**Video memory — 128 MB**
+**Screenshot 6 — Video Memory: 128 MB**
 
 ![Video memory configuration](Lab_Setup/Screenshot_7.png)
 
