@@ -75,70 +75,69 @@ The following table outlines the hardware and network configurations used in thi
 This section documents the installation and initial configuration of the virtual cybersecurity lab.
 
 ### 1. Downloading Kali Linux
-
 Downloaded the pre-built Kali Linux virtual machine from the official Kali Linux website.
 
 **Screenshot 1 – Kali Linux Pre-built Virtual Machine Download Page**
-
 ![Kali Linux Download Page](Lab_Setup/Screenshot_1.png)
 
-### 2. 
 
-Imported the downloaded Kali Linux virtual machine into Oracle VirtualBox.
+### 2. Opened VirtualBox
+VirtualBox was already installed in my computer, kindly ignore the Kali Linux virtual machine, it was from a previous project.
 
-**Screenshot 3 – Imported Kali Linux Virtual Machine**
+**Screenshot 2 – Oracle VirtualBox**
+![Imported Kali Linux VM](Lab_Setup/Screenshot_2.png)
 
-![Imported Kali Linux VM](screenshots/screenshot-3.png)
 
-### 3. Configuring Virtual Machine Resources
+### 3. Import of the pre-built kali linux
+I added the new kali linux for the purpose of pentesting, cybersecurity, and testing.
 
+**Screenshot 3 – Oracle VirtualBox**
+![Imported Kali Linux VM](Lab_Setup/Screenshot_3.png)
+
+
+### 4. Created the NAT Network
+Created a NAT Network in Oracle VirtualBox using the `10.0.0.0/24` subnet and named it as "NatNetwork.
+
+**Screenshot 4 – Oracle VirtualBox**
+![Imported Kali Linux VM](Lab_Setup/Screenshot_4.png)
+
+
+
+### 5. Configuring Virtual Machine Resources
 Configured the virtual machine's hardware resources to ensure sufficient performance.
 
 **Screenshot 4 – Base Memory Configuration**
-
-![RAM Configuration](screenshots/screenshot-4.png)
+![RAM Configuration](Lab_Setup/Screenshot_5.png)
 
 **Screenshot 5 – Processor Configuration**
-
-![CPU Configuration](screenshots/screenshot-5.png)
+![CPU Configuration](Lab_Setup/Screenshot_6.png)
 
 **Screenshot 6 – Video Memory Configuration**
+![Video Memory Configuration](Lab_Setup/Screenshot_7.png)
 
-![Video Memory Configuration](screenshots/screenshot-6.png)
 
-### 4. Creating the NAT Network
+### 6. Configuring Network Settings
+I configured the Kali Linux virtual machine to use the NAT network (NatNetwork).
 
-Created a NAT Network in Oracle VirtualBox using the `10.0.0.0/24` subnet.
+**Screenshot 7 – Virtual Machine Network Adapter Configuration**
+![Network Adapter Configuration](Lab_Setup/Screenshot_8.png)
 
-**Screenshot 7 – NAT Network Configuration**
 
-![NAT Network Configuration](screenshots/screenshot-7.png)
-
-### 5. Configuring Network Settings
-
-Configured the Kali Linux virtual machine to use the newly created `NatNetwork`.
-
-**Screenshot 8 – Virtual Machine Network Adapter Configuration**
-
-![Network Adapter Configuration](screenshots/screenshot-8.png)
-
-### 6. Configuring Shared Folders
-
+### 7. Configuring Shared Folders
 Configured a shared folder between the Windows host and Kali Linux, using the Windows Downloads directory.
 
 **Screenshot 9 – Shared Folder Configuration**
+![Shared Folder Configuration](Lab_Setup/Screenshot_9.png)
 
-![Shared Folder Configuration](screenshots/screenshot-9.png)
 
-### 7. Booting Kali Linux
 
+### 10. Booting Kali Linux
 Successfully started the Kali Linux virtual machine after completing the initial configuration.
 
 **Screenshot 10 – Successful Kali Linux Boot**
+![Kali Linux Boot](Lab_Setup/Screenshot_10.png)
 
-![Kali Linux Boot](screenshots/screenshot-10.png)
-
-### 8. Configuring Static IPv4 Settings
+### 11. Configuring Static IPv4 Settings
 
 Manually configured the IPv4 network settings in Kali Linux with the following values:
 
@@ -148,8 +147,7 @@ Manually configured the IPv4 network settings in Kali Linux with the following v
 - DNS Server: `8.8.8.8`
 
 **Screenshot 11 – Manual IPv4 Configuration**
-
-![IPv4 Configuration](screenshots/screenshot-11.png)
+![IPv4 Configuration](Lab_Setup/Screenshot_11.png)
 
 ---
 
@@ -173,11 +171,10 @@ ip a
 ```
 
 **Evidence:** Screenshot showing the command output and the assigned IP address.
+![IP Address Verification](Network_Verification/Screenshot_12.png)
 
-![IP Address Verification](screenshots/network-ip-address.png)
 
 ### 2. Verify the Default Gateway
-
 Used the following command to inspect the routing table and identify the configured default gateway.
 
 ```bash
@@ -185,11 +182,10 @@ ip route
 ```
 
 **Evidence:** Screenshot showing the routing table and default gateway.
+![Default Gateway Verification](Network_Verification/Screenshot_13.png)
 
-![Default Gateway Verification](screenshots/default-gateway.png)
 
 ### 3. Test Gateway Connectivity
-
 Used `ping` to verify communication between Kali Linux and its default gateway.
 
 ```bash
@@ -197,11 +193,9 @@ ping 10.0.0.1
 ```
 
 **Evidence:** Screenshot showing the ping results.
-
-![Gateway Connectivity Test](screenshots/gateway-ping.png)
+![Gateway Connectivity Test](Network_Verification/Screenshot_14.png)
 
 ### 4. Test External Internet Connectivity
-
 Tested connectivity to Google's public DNS server using its IP address.
 
 ```bash
@@ -209,11 +203,10 @@ ping 8.8.8.8
 ```
 
 **Evidence:** Screenshot showing successful external connectivity.
+![Internet Connectivity Test](Network_Verification/Screenshot_15.png)
 
-![Internet Connectivity Test](screenshots/internet-ping.png)
 
 ### 5. Test DNS Resolution
-
 Used `nslookup` to verify that domain names could be resolved into IP addresses.
 
 ```bash
@@ -221,19 +214,17 @@ nslookup google.com
 ```
 
 **Evidence:** Screenshot showing the DNS lookup results.
+![DNS Resolution Test](Network_Verification/Screenshot_16.png)
 
-![DNS Resolution Test](screenshots/dns-resolution.png)
 
 ### 6. Verify Internet Access Through the Browser
+Finally, I opened YouTube through the Kali Linux browser to visually confirm that internet access was functioning.
 
-Finally, opened YouTube through the Kali Linux browser to visually confirm that internet access was functioning.
-
-![Kali Linux Internet Access](screenshots/browser-internet.png)
+![Kali Linux Internet Access](Network_Verification/Screenshot_17.png)
 
 ---
 
 ## Shared Folder Verification
-
 To verify that the shared folder was working correctly, I created a test folder inside the Windows Downloads directory.
 
 The folder was named:
@@ -246,19 +237,19 @@ This folder was used as a simple way to confirm that files created on the Window
 
 The following screenshot shows the test folder created inside the Windows Downloads directory.
 
-![Windows Downloads Folder](screenshots/windows-shared-folder.png)
+![Windows Downloads Folder](Shared_Folder_Verification/Screenshot_18.png)
 
 ### 2. Accessing the Shared Folder in Kali Linux
 
 Verified that the shared folder was accessible from within Kali Linux using the terminal.
 
-![Kali Linux Shared Folder](screenshots/kali-shared-folder.png)
+![Kali Linux Shared Folder](Shared_Folder_Verification/Screenshot_19.png)
 
 ### 3. Comparing Windows and Kali Linux
 
 The following screenshot provides a side-by-side comparison of the Windows Downloads folder and the corresponding shared folder accessed through Kali Linux.
 
-![Shared Folder Comparison](screenshots/shared-folder-comparison.png)
+![Shared Folder Comparison](Shared_Folder_Verification/Screenshot_20.png)
 
 ---
 
